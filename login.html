@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA SALON | Admin Login — Hair Salon Management Suite</title>
+  <meta name="description" content="Sign in to the AURA SALON Multi-Branch Hair Salon Management Admin Panel. Head Admin, Branch Admin, and Customer login portal." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body class="login-page">
+
+  <!-- Animated Background -->
+  <div class="login-bg-canvas">
+    <div class="orb-accent"></div>
+    <div class="login-grid-pattern"></div>
+    <!-- Floating salon icons -->
+    <span class="floating-scissors">✂️</span>
+    <span class="floating-scissors">💇</span>
+    <span class="floating-scissors">✂️</span>
+    <span class="floating-scissors">💈</span>
+  </div>
+
+  <!-- Login Wrapper -->
+  <div class="login-wrapper">
+    <div class="login-container">
+
+      <!-- Left: Branding Panel -->
+      <div class="login-brand-panel" style="background: linear-gradient(160deg, rgba(124, 58, 237, 0.25) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(109, 40, 217, 0.3) 100%);">
+        <div class="duo-icon-box lg" style="margin: 0 auto 16px auto; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-color: #6d28d9;">
+          <svg class="duo-svg" viewBox="0 0 24 24" width="30" height="30"><circle cx="6" cy="6" r="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/><circle cx="6" cy="18" r="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/><path d="M20 4L8.5 15.5M20 20L8.5 8.5" stroke="#ffffff" stroke-width="2.5"/></svg>
+        </div>
+        <h1 class="login-brand-title" style="background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AURA SALON</h1>
+        <p class="login-brand-tagline" style="color: #cbd5e1;">Management Suite</p>
+
+        <div class="brand-features">
+          <div class="brand-feature-item">
+            <div class="duo-icon-box sm" style="background: rgba(124, 58, 237, 0.2); border-color: #7c3aed;">
+              <svg class="duo-svg" viewBox="0 0 24 24" width="16" height="16"><path d="M3 21h18M5 21V7l7-4 7 4v14" fill="#8b5cf6" stroke="#ffffff" stroke-width="2"/><rect x="9" y="13" width="6" height="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5"/></svg>
+            </div>
+            <span class="feature-text" style="color: #e2e8f0; font-weight: 600;">Multi-Branch Management</span>
+          </div>
+          <div class="brand-feature-item">
+            <div class="duo-icon-box sm" style="background: rgba(124, 58, 237, 0.2); border-color: #7c3aed;">
+              <svg class="duo-svg" viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="4" width="18" height="16" rx="3" fill="#8b5cf6" stroke="#ffffff" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="#ffffff" stroke-width="2"/></svg>
+            </div>
+            <span class="feature-text" style="color: #e2e8f0; font-weight: 600;">Appointment Scheduling</span>
+          </div>
+          <div class="brand-feature-item">
+            <div class="duo-icon-box sm" style="background: rgba(124, 58, 237, 0.2); border-color: #7c3aed;">
+              <svg class="duo-svg" viewBox="0 0 24 24" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.78-8.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#8b5cf6" stroke="#ffffff" stroke-width="2"/></svg>
+            </div>
+            <span class="feature-text" style="color: #e2e8f0; font-weight: 600;">Revenue & Reports</span>
+          </div>
+          <div class="brand-feature-item">
+            <div class="duo-icon-box sm" style="background: rgba(124, 58, 237, 0.2); border-color: #7c3aed;">
+              <svg class="duo-svg" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 1 0 0 4v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 1 0 0-4V6z" fill="#8b5cf6" stroke="#ffffff" stroke-width="2"/></svg>
+            </div>
+            <span class="feature-text" style="color: #e2e8f0; font-weight: 600;">Offers & Coupons</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Login Form Panel -->
+      <div class="login-form-panel">
+
+        <!-- Form Header -->
+        <div class="login-form-header">
+          <h2 id="loginTitle" style="color: #ffffff; font-weight: 800;">AURA SALON Sign In</h2>
+          <p id="loginSubtitle" style="color: #cbd5e1;">Enter your email or login ID to sign in</p>
+        </div>
+
+        <!-- Role Selector Tabs -->
+        <div class="login-tabs" style="display: flex; gap: 8px; margin-bottom: 18px; background: #1e293b; padding: 6px; border-radius: 14px; border: 1.5px solid rgba(255, 255, 255, 0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          <button type="button" class="login-tab" id="tabHeadAdmin" style="flex: 1; padding: 11px; border-radius: 10px; border: none; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; background: transparent; color: #f8fafc;">👑 Head Admin</button>
+          <button type="button" class="login-tab" id="tabBranchAdmin" style="flex: 1; padding: 11px; border-radius: 10px; border: none; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; background: transparent; color: #f8fafc;">🏢 Branch Admin</button>
+          <button type="button" class="login-tab" id="tabCustomer" style="flex: 1; padding: 11px; border-radius: 10px; border: none; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; background: transparent; color: #f8fafc;">👤 Customer</button>
+        </div>
+
+        <!-- Quick Demo Fill Pills -->
+        <div style="margin-bottom: 20px; padding: 12px 16px; background: #1e293b; border: 1.5px solid rgba(124, 58, 237, 0.45); border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">
+          <div style="font-size: 12px; font-weight: 800; color: #a78bfa; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+            <span>⚡ Quick Demo One-Click Login:</span>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button type="button" id="quickDemoHeadAdmin" style="padding: 8px 14px; background: #7c3aed; color: #ffffff; border: none; border-radius: 9px; font-size: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4); transition: transform 0.2s ease;">
+              👑 Head Admin
+            </button>
+            <button type="button" id="quickDemoBranchAdmin" style="padding: 8px 14px; background: #3b82f6; color: #ffffff; border: none; border-radius: 9px; font-size: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4); transition: transform 0.2s ease;">
+              🏢 Branch Admin
+            </button>
+            <button type="button" id="quickDemoCustomer" style="padding: 8px 14px; background: #ec4899; color: #ffffff; border: none; border-radius: 9px; font-size: 12px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4); transition: transform 0.2s ease;">
+              👤 Customer
+            </button>
+          </div>
+        </div>
+
+        <!-- Alert Message -->
+        <div class="login-message" id="loginMessage">
+          <span class="login-message-icon" id="loginMsgIcon">⚠</span>
+          <span id="loginMsgText">Error message here</span>
+        </div>
+
+        <!-- Login Form -->
+        <form class="login-form" id="loginForm" autocomplete="off">
+          <!-- Login ID Field -->
+          <div class="login-field">
+            <label class="login-field-label" for="loginEmail">Email / Login ID</label>
+            <div class="login-input-wrapper" id="loginEmailWrapper">
+              <input
+                type="text"
+                class="login-input"
+                id="loginEmail"
+                name="email"
+                placeholder="Enter your email or login ID"
+                required
+                autocomplete="username"
+              />
+              <span class="login-input-icon">👤</span>
+            </div>
+            <!-- Live Inline Error Text -->
+            <div class="field-error-text" id="loginEmailError" style="display: none;">
+              <span>⚠</span> <span id="loginEmailErrorMsg">Invalid email address</span>
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="login-field">
+            <label class="login-field-label" for="loginPassword">Password</label>
+            <div class="login-input-wrapper" id="loginPasswordWrapper">
+              <input
+                type="password"
+                class="login-input"
+                id="loginPassword"
+                name="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              />
+              <span class="login-input-icon">🔒</span>
+              <button type="button" class="password-toggle-btn" id="passwordToggle" title="Show/Hide Password">👁️</button>
+            </div>
+            <!-- Live Inline Error Text -->
+            <div class="field-error-text" id="loginPasswordError" style="display: none;">
+              <span>⚠</span> <span id="loginPasswordErrorMsg">Password must contain at least one number</span>
+            </div>
+          </div>
+
+          <!-- Forgot Password Link -->
+          <div style="text-align: right; margin-top: -6px; margin-bottom: 16px;">
+            <button type="button" id="openForgotPasswordModalBtn" style="background: none; border: none; color: #3b82f6; font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: underline;">
+              🔑 Forgot Password? Reset via Email OTP
+            </button>
+          </div>
+
+          <button type="submit" class="login-submit-btn" id="loginBtn">
+            <span class="btn-spinner"></span>
+            <span class="btn-text">Sign In</span>
+          </button>
+
+          <!-- Customer Email OTP Registration Trigger -->
+          <div style="margin-top: 14px; text-align: center;">
+            <button type="button" id="openMobileOTPModalBtn" style="width: 100%; border: 1px dashed rgba(212,175,55,0.4); background: rgba(212,175,55,0.08); color: #fbbf24; font-size: 13px; font-weight: 600; padding: 11px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+              ✉️ New Customer? Sign Up with Email ID + OTP
+            </button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Customer Email ID + OTP Registration Modal -->
+  <div id="loginOtpModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
+    <div style="background: #ffffff; width: 100%; max-width: 480px; border-radius: 20px; padding: 28px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3); border: 1px solid rgba(212, 175, 55, 0.3); position: relative; margin: auto;">
+      <button type="button" id="closeLoginOtpModalBtn" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; cursor: pointer; color: #64748b;">✕</button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span style="font-size: 36px;">✉️</span>
+        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-top: 8px;">Customer Email Sign Up</h3>
+        <p style="font-size: 13px; color: #64748b; margin-top: 4px;">Verify your Email ID with a 6-Digit OTP to complete registration</p>
+      </div>
+
+      <div id="regStatusMsg" style="display: none; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; font-weight: 600;"></div>
+
+      <form id="loginMobileOtpForm">
+        <!-- Email & Send OTP Button -->
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Email Address *</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="email" id="regEmailLogin" placeholder="name@example.com" required style="flex: 1; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none;" />
+            <button type="button" id="sendOtpLoginBtn" style="padding: 10px 14px; background: #2563eb; color: #ffffff; border: none; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer; whitespace: nowrap;">
+              Send OTP
+            </button>
+          </div>
+          <div id="regEmailErr" style="display: none; font-size: 11.5px; color: #ef4444; font-weight: 500; margin-top: 4px;">Invalid email address</div>
+        </div>
+
+        <!-- 6-Digit OTP Code -->
+        <div id="otpBoxLogin" style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">6-Digit OTP Code *</label>
+          <input type="text" id="otpCodeInputLogin" placeholder="Enter 6-digit OTP" maxlength="6" disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; font-weight: 700; letter-spacing: 3px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+          <p style="font-size: 11px; color: #64748b; margin-top: 4px;">Demo OTP Code: <strong id="demoOtpLoginVal" style="color: #2563eb;">123456</strong></p>
+        </div>
+
+        <!-- Full Name & Age -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px; margin-bottom: 14px;">
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Full Name *</label>
+            <input type="text" id="regNameLogin" placeholder="John Doe" required disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+            <div id="regNameErr" style="display: none; font-size: 11.5px; color: #ef4444; font-weight: 500; margin-top: 4px;">Name must be at least 2 characters</div>
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Age *</label>
+            <input type="number" id="regAgeLogin" placeholder="25" min="1" max="99" oninput="if(this.value.length > 2) this.value = this.value.slice(0, 2); if(Number(this.value) >= 100) this.value = '99';" required disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Phone Number *</label>
+          <input type="tel" id="regPhoneLogin" placeholder="10-Digit Mobile Number" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'').slice(0,10)" required disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+          <div id="regPhoneErr" style="display: none; font-size: 11.5px; color: #ef4444; font-weight: 500; margin-top: 4px;">Phone number must be 10 numeric digits</div>
+        </div>
+
+        <!-- Password & Confirm Password -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Password *</label>
+            <input type="password" id="regPasswordLogin" placeholder="At least 8 chars" required disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+            <div id="regPassErr" style="display: none; font-size: 11.5px; color: #ef4444; font-weight: 500; margin-top: 4px;">Password must contain at least one number</div>
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Confirm Password *</label>
+            <input type="password" id="regConfirmPasswordLogin" placeholder="Re-enter password" required disabled style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none; background: #f8fafc; opacity: 0.6; cursor: not-allowed;" />
+            <div id="regConfirmPassErr" style="display: none; font-size: 11.5px; color: #ef4444; font-weight: 500; margin-top: 4px;">Passwords do not match</div>
+          </div>
+        </div>
+
+        <button type="submit" id="regSubmitBtn" disabled style="width: 100%; padding: 12px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: not-allowed; opacity: 0.6;">
+          Verify OTP & Complete Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot Password (Email OTP Reset) Modal -->
+  <div id="forgotPasswordModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px; overflow-y: auto;">
+    <div style="background: #ffffff; width: 100%; max-width: 440px; border-radius: 20px; padding: 28px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3); border: 1px solid rgba(59, 130, 246, 0.3); position: relative; margin: auto;">
+      <button type="button" id="closeForgotPasswordModalBtn" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 20px; cursor: pointer; color: #64748b;">✕</button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span style="font-size: 36px;">🔑</span>
+        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-top: 8px;">Reset Password</h3>
+        <p style="font-size: 13px; color: #64748b; margin-top: 4px;">Enter your email to receive a 6-digit OTP code to reset your password</p>
+      </div>
+
+      <div id="forgotStatusMsg" style="display: none; padding: 10px 14px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; font-weight: 600;"></div>
+
+      <form id="forgotPasswordForm">
+        <!-- Email & Send Reset OTP Button -->
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Registered Email Address *</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="email" id="forgotEmailInput" placeholder="name@example.com" required style="flex: 1; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none;" />
+            <button type="button" id="sendForgotPasswordOtpBtn" style="padding: 10px 14px; background: #2563eb; color: #ffffff; border: none; border-radius: 8px; font-weight: 600; font-size: 12px; cursor: pointer; whitespace: nowrap;">
+              Send OTP
+            </button>
+          </div>
+        </div>
+
+        <!-- 6-Digit OTP Code -->
+        <div id="forgotOtpBox" style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">6-Digit Reset OTP Code *</label>
+          <input type="text" id="forgotOtpInput" placeholder="Enter 6-digit OTP" maxlength="6" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; font-weight: 700; letter-spacing: 3px; outline: none;" />
+          <p style="font-size: 11px; color: #64748b; margin-top: 4px;">Demo OTP Code: <strong id="demoForgotOtpVal" style="color: #2563eb;">654321</strong></p>
+        </div>
+
+        <!-- New Password & Confirm Password -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">New Password *</label>
+            <input type="password" id="forgotNewPasswordInput" placeholder="At least 8 chars" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none;" />
+          </div>
+          <div>
+            <label style="display: block; font-size: 12px; font-weight: 700; color: #334155; margin-bottom: 6px;">Confirm Password *</label>
+            <input type="password" id="forgotConfirmPasswordInput" placeholder="Re-enter password" required style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; outline: none;" />
+          </div>
+        </div>
+
+        <button type="submit" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; border: none; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer;">
+          Reset Password & Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Instant Validation Error Pop-up Modal -->
+  <div id="loginValidationPopupModal" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px); z-index: 99999; justify-content: center; align-items: center; padding: 20px;">
+    <div style="background: #ffffff; border: 1px solid rgba(225, 29, 72, 0.3); width: 100%; max-width: 440px; border-radius: 20px; padding: 24px; text-align: center; box-shadow: 0 25px 60px rgba(225, 29, 72, 0.25);">
+      <div style="width: 54px; height: 54px; border-radius: 50%; background: rgba(225, 29, 72, 0.1); color: #e11d48; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 24px;">
+        ⚠️
+      </div>
+      <h3 style="font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Invalid Login Input</h3>
+      <p id="popupErrorText" style="font-size: 13.5px; color: #475569; margin-bottom: 20px; line-height: 1.5; font-weight: 500;">Error message text here</p>
+      <button type="button" id="closeValidationPopupBtn" onclick="document.getElementById('loginValidationPopupModal').style.display='none'" style="width: 100%; padding: 11px; background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); color: #ffffff; border: none; border-radius: 12px; font-weight: 700; font-size: 13px; cursor: pointer; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);">
+        Got it, I'll Fix It
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="login-footer">
+    &copy; 2026 AURA SALON Management Suite. All rights reserved.
+  </footer>
+
+  <!-- Login JS -->
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Profile | Luxe Haus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  
+  <style>
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --duo-lime-primary: #b2f347;
+      --duo-lime-soft: #f4fce3;
+      --duo-black-stroke: #111827;
+      --color-primary: #111827;
+      --color-bg: #f8fafc;
+      --color-surface: #ffffff;
+      --color-border: #111827;
+      --color-text-dark: #0f172a;
+      --color-text-muted: #475569;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: #0f172a;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+
+    /* All text & numbers styling */
+    body *:not(.brand-logo-mark):not(.brand-logo-mark *):not(.duo-svg *):not(.duo-btn-primary):not(.duo-btn-primary *) {
+      color: #0f172a !important;
+    }
+
+    /* Gradient Banner */
+    .profile-banner {
+      width: 100%;
+      height: 220px;
+      background: var(--duo-lime-soft);
+      border-bottom: 2.5px solid var(--duo-black-stroke);
+      position: relative;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.05);
+    }
+
+    .back-dashboard-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--duo-lime-primary);
+      border: 2.5px solid var(--duo-black-stroke);
+      color: var(--duo-black-stroke) !important;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 3px 3px 0px var(--duo-black-stroke);
+    }
+
+    .back-dashboard-btn:hover {
+      background: var(--duo-lime-bright);
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--duo-black-stroke);
+    }
+
+    /* Main Content Container */
+    .profile-content {
+      max-width: 1100px;
+      margin: -70px auto 60px auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Profile Header Card */
+    .profile-header-card {
+      background: #ffffff;
+      border-radius: 24px;
+      border: 2.5px solid var(--duo-black-stroke);
+      padding: 32px 40px;
+      box-shadow: 4px 4px 0px var(--duo-black-stroke);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .profile-identity-group {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    .profile-avatar-large {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--duo-lime-primary);
+      color: var(--duo-black-stroke) !important;
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3.5px solid var(--duo-black-stroke);
+      box-shadow: 4px 4px 0px var(--duo-black-stroke);
+      margin-top: -60px;
+    }
+
+    .profile-meta h1 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text-dark);
+      margin-bottom: 4px;
+    }
+
+    .profile-meta p {
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .logout-trigger-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: #dc2626;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .logout-trigger-btn:hover {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Details Cards Grid */
+    .profile-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .detail-card {
+      background: #ffffff;
+      border-radius: 20px;
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .detail-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(124, 58, 237, 0.08);
+      color: var(--color-primary);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .detail-card label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: var(--color-text-muted);
+      margin-bottom: 6px;
+    }
+
+    .detail-card p {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+    }
+
+    /* Modal Confirmation */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+      transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+
+    .modal-icon-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #fef2f2;
+      color: #dc2626;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px auto;
+    }
+
+    .modal-box h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      color: #64748b;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-cancel { background: #f1f5f9; color: #475569; }
+    .btn-danger { background: #dc2626; color: #ffffff; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Large Gradient Banner -->
+  <div class="profile-banner">
+    <!-- Back to Dashboard Button in Top-Left Corner of Banner -->
+    <a href="index.html" class="back-dashboard-btn">
+      <span>←</span> Back to Dashboard
+    </a>
+  </div>
+
+  <!-- 2. Profile Main Content View -->
+  <main class="profile-content">
+    <!-- Header Card with Overlapping Avatar -->
+    <div class="profile-header-card">
+      <div class="profile-identity-group">
+        <div class="profile-avatar-large">ES</div>
+        <div class="profile-meta">
+          <h1>Eleanor Sterling</h1>
+          <p>👑 Head Executive Administrator</p>
+        </div>
+      </div>
+
+      <!-- Log Out Button Trigger -->
+      <button type="button" class="logout-trigger-btn" id="openLogoutModalBtn">
+        <span>🚪</span> Log Out
+      </button>
+    </div>
+
+    <!-- Details Grid of Cards -->
+    <div class="profile-cards-grid">
+      <div class="detail-card">
+        <div class="card-icon-badge">✉️</div>
+        <label>Email Address</label>
+        <p>eleanor.sterling@luxehaus.com</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="card-icon-badge">📞</div>
+        <label>Phone Number</label>
+        <p>+1 (555) 948-2041</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="card-icon-badge">🛡️</div>
+        <label>Access Level</label>
+        <p>Super Admin (Full Rights)</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="card-icon-badge">🏢</div>
+        <label>Assigned Region</label>
+        <p>Global Headquarters</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- 3. Centered Confirmation Log Out Modal -->
+  <div class="modal-overlay" id="logoutModalOverlay">
+    <div class="modal-box">
+      <div class="modal-icon-badge">🚪</div>
+      <h3>Sign Out of Account?</h3>
+      <p>Are you sure you want to log out of Luxe Haus Executive Administration?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-cancel" id="cancelLogoutBtn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmLogoutBtn">Log Out</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openModalBtn = document.getElementById('openLogoutModalBtn');
+      const modalOverlay = document.getElementById('logoutModalOverlay');
+      const cancelBtn = document.getElementById('cancelLogoutBtn');
+      const confirmBtn = document.getElementById('confirmLogoutBtn');
+
+      openModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.add('active');
+      });
+
+      cancelBtn.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+      });
+
+      confirmBtn.addEventListener('click', () => {
+        alert('Successfully logged out!');
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+
+</body>
+</html>
